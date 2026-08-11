@@ -1,5 +1,10 @@
 # sonae (備え) — Non-profit Religious-Corp Civilian Pre-Disaster Foresight + Preparedness + Early-Warning Substrate
 
+Canonical repository: `cloud-itonami/actor-sonae`. This governed, resident
+preparedness actor belongs to the Itonami public-operations plane. It relays
+authoritative warnings and prepares communities; it does not declare disasters
+or own Tamaki's artificial-organism evolution loop.
+
 **DID**: `did:web:sonae.etzhayyim.com`
 **Namespace**: `com.etzhayyim.sonae.*`
 **ADR**: ADR-2606091200 (R0 scaffold)

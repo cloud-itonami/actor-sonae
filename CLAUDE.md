@@ -1,4 +1,7 @@
-# com-etzhayyim-sonae — CLAUDE.md
+# cloud-itonami/actor-sonae — CLAUDE.md
+
+Canonical repository: `https://github.com/cloud-itonami/actor-sonae`.
+The former `etzhayyim/com-etzhayyim-sonae` path is a compatibility redirect.
 
 ## Identity
 

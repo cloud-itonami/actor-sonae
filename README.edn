@@ -1,0 +1,5 @@
+{:repo/id "cloud-itonami/actor-sonae"
+ :repo/aliases ["etzhayyim/com-etzhayyim-sonae"]
+ :repo/role :governed-executable-actor
+ :repo/execution :resident
+ :repo/boundary "Community preparedness and authoritative-warning relay only; response belongs to kazaori and organism evolution to Tamaki."}

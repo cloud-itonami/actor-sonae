@@ -1,5 +1,7 @@
 {:identity/id "did:web:sonae.etzhayyim.com"
  :identity/actor "sonae"
+ :identity/repository "https://github.com/cloud-itonami/actor-sonae"
+ :identity/repository-aliases ["https://github.com/etzhayyim/com-etzhayyim-sonae"]
  :identity/canonical-document "manifest.edn"
  :identity/external-did-document ".well-known/did.json"
  :identity/canonical-format :edn}
