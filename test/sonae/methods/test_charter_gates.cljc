@@ -14,7 +14,7 @@
   seed) — no real hazard/personal data is read or asserted."
   (:require [clojure.test :refer [deftest is run-tests]]
             [clojure.set :as set]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [clojure.edn :as edn]))
 
 (def ^:private here (.getParentFile (java.io.File. ^String *file*)))     ;; methods/
@@ -152,7 +152,7 @@
 (deftest test-site-risk-profile-community-scale-no-individual-data
   (let [doc (lex "siteRiskProfile")]
     (is (= true (a-const doc "communityScaleAttested")) "G3: communityScaleAttested const true")
-    (let [blob (str/lower-case (pr-str doc))]
+    (let [blob (str/lower (pr-str doc))]
       (doseq [frag individual-level-forbidden]
         (is (not (str/includes? blob frag)) (str "G6: forbidden individual-level field fragment " frag))))))
 
@@ -172,7 +172,7 @@
                         (do (when (and (contains? x "knownValues") (sequential? (get x "knownValues")))
                               (doseq [v (get x "knownValues")]
                                 (when (string? v)
-                                  (let [low (str/lower-case v)]
+                                  (let [low (str/lower v)]
                                     (doseq [vendor prohibited-vendors]
                                       (when (str/includes? low vendor)
                                         (swap! offenders conj (str lname ": " v))))))))
@@ -188,7 +188,7 @@
     (is (contains? m "falseAuthorityInvariant") "G8 invariant must be declared")
     (is (contains? m "phaseBoundaryInvariant") "N3 phase-boundary invariant must be declared")
     (is (contains? m "civilianOnlyInvariant") "G5+N1 civilian-only invariant must be declared")
-    (is (str/includes? (str/lower-case (get-in m ["nonGoals" "goals" "N3"])) "response")
+    (is (str/includes? (str/lower (get-in m ["nonGoals" "goals" "N3"])) "response")
         "N3 must state sonae is NOT response")))
 
 ;; ── G10 — no unilateral declaration: structural absence of any field that
@@ -197,7 +197,7 @@
 
 (deftest test-g10-no-declare-emergency-field-anywhere
   (doseq [lname all-lexicon-names]
-    (let [ks (set (map (comp str/lower-case name) (property-keys (lex lname))))]
+    (let [ks (set (map (comp str/lower name) (property-keys (lex lname))))]
       (doseq [bad ["declareemergency" "emergencydeclared" "emergencystatetrue" "declaresemergency"]]
         (is (not (contains? ks bad))
             (str "G10: " lname " must not carry a '" bad "' field (only kazaori Council may declare)"))))))
@@ -249,7 +249,7 @@
 (deftest test-registry-g8-authoritative-and-relay-only-notes
   (doseq [s (get (registry) "sources")]
     (is (= true (get s "isAuthoritativeIssuer")) (str "G8: " (get s "sourceId") " not authoritative"))
-    (let [notes (str/lower-case (or (get s "notes") ""))]
+    (let [notes (str/lower (or (get s "notes") ""))]
       (is (and (str/includes? notes "relay") (str/includes? notes "g8"))
           (str "G8: " (get s "sourceId") " notes must re-assert the relay-only boundary")))))
 
