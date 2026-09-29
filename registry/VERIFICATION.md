@@ -25,7 +25,7 @@ warning-source entry.
 > reorganization or with recently-changed warning products). Verification
 > execution begins at R1 (Council ratification + a warning-source
 > verification maintainer DID registered, per the sonae R0→R1 roadmap in
-> `CLAUDE.md`).
+> `AGENTS.md`).
 
 ## Tiers (`verificationStatus`)
 
@@ -132,4 +132,4 @@ shipped pre-verified, missing a citation, drifting out of the taxonomy, or
 dropping the relay-only re-assertion fails CI. This is the **machine
 floor**; the human checklist above is the verification ceiling. The R0
 routing/operational refusal itself lives in the sonae cells (R0:
-import-RuntimeError, per `CLAUDE.md`).
+import-RuntimeError, per `AGENTS.md`).

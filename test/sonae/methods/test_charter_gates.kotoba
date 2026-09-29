@@ -5,9 +5,9 @@
   suites `70-tools/scripts/audit/test_sonae_lexicon_invariants.py` +
   `test_sonae_warning_sources_seed.py` (Python is not on this repo's runtime-priority
   ladder — kotoba wasm > clojurewasm > cljs > nbb > downgraded JVM/bb — per repo-root
-  CLAUDE.md; the Python files are left in place for one cycle per MATURITY.md, this file
+  AGENTS.md; the Python files are left in place for one cycle per MATURITY.md, this file
   is the closing of that runtime debt, not a replacement commit). Gate content below is
-  derived directly from sonae's canonical manifest.edn + CLAUDE.md + ADR-2606091200, not
+  derived directly from sonae's canonical manifest.edn + AGENTS.md + ADR-2606091200, not
   transliterated blind from the Python — every assertion here is re-verified against the
   on-disk JSON it reads. R0 scaffold slice: test-only, network-free, no cell execution.
   Fixtures are the actor's own canonical EDN documents (manifest + lexicons + registry
@@ -91,7 +91,7 @@
     (is (= "did:web:sonae.etzhayyim.com" (get m "id")))
     (is (= "sonae" (get m "name")))))
 
-;; ── 2. structural counts — drift guard against CLAUDE.md's own declared
+;; ── 2. structural counts — drift guard against AGENTS.md's own declared
 ;;    "6 cells / 6 Lexicons / 12 gates / 12 non-goals" summary ──────────────
 
 (deftest test-manifest-structural-counts-match-declared-summary
@@ -203,7 +203,7 @@
             (str "G10: " lname " must not carry a '" bad "' field (only kazaori Council may declare)"))))))
 
 ;; ── cross-gate: drillAttestation exposes the kazaori R1 drill-gate evidence
-;;    field (CLAUDE.md §"Phase boundary": drill_attestation double-satisfies
+;;    field (AGENTS.md §"Phase boundary": drill_attestation double-satisfies
 ;;    kazaori's R1 activation gate) ─────────────────────────────────────────
 
 (deftest test-drill-attestation-exposes-kazaori-r1-gate-field
