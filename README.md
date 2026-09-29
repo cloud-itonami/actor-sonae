@@ -130,7 +130,7 @@ issuing authoritative public alerts (relay-only).
 ## Related Files
 
 - `manifest.edn`
-- `CLAUDE.md`
+- `AGENTS.md`
 - `lex/` (6 canonical EDN Lexicons)
 - `/90-docs/adr/2606091200-sonae-pre-disaster-foresight-tier-b-actor-r0.md` — Master ADR
 - `/90-docs/adr/2605263200-kazaori-disaster-response-tier-b-actor-r0.md` — downstream response actor (handoff target)
